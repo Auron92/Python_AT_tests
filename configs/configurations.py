@@ -38,3 +38,17 @@ DEVICE_SN = config.get("device","sn")
 
 device_info = f"{DEVICE_NAME}-{DEVICE_SN}"
 #
+
+ALLURE_CTL_PATH = config.get("Allure","exe_path")
+ENDPOINT = config.get("Allure","endpoint")
+TOKEN = config.get("Allure","token")
+PROJECT_ID = config.get("Allure","project_id")
+LAUNCH_NAME = config.get("Allure","launch_name")
+
+allure_upload = {
+    'allurectl_path': ALLURE_CTL_PATH,
+    'endpoint': ENDPOINT,
+    'token':TOKEN,
+    'project_id': PROJECT_ID,
+    'launch_name': LAUNCH_NAME,
+}

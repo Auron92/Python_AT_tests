@@ -1,8 +1,7 @@
-from colorlog import ColoredFormatter
 import pytest
 import paramiko
 import logging
-from configs.configurations import server_auth
+from configs.configurations import allure_upload
 from configs.connections import LX
 import os
 import shutil
@@ -22,17 +21,7 @@ def LX_connection():
 
 
 
-def pytest_configure(config):
-    
-    # Создаём папку для логов, если её нет
-    os.makedirs("logs", exist_ok=True)
-    
-    # Настройка файлового логгера (без цветов)
-    file_handler = logging.FileHandler("logs/test.log", mode='w')
-    file_handler.setFormatter(
-        logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  # Простой формат
-    )
-    logging.getLogger().addHandler(file_handler)
+
 
 # АВТОМАТИЧЕСКАЯ ЗАГРУЗКА В ALLURE с STW-PRO-TEST
 
@@ -44,18 +33,16 @@ def pytest_configure(config):
 
 
 
-# АВТОМАТИЧЕСКАЯ ЗАГРУЗКА В ALLURE
+# АВТОМАТИЧЕСКАЯ ЗАГРУЗКА В ALLURE по окончании всех тестов
 
 def pytest_sessionfinish(session, exitstatus):
     """Вызывается после завершения всех тестов"""
-    # Получаем настройки из переменных окружения
-    allurectl_path = "C:\\Users\\m.maltsev\\Desktop\\Work_Files\\allurectl_windows_amd64.exe"
-    allure_endpoint = "https://allure.1440.space/"
-    allure_token = "5d332763-7646-455c-b593-cfefa5a725ab"
-    project_id = "131"  # Значение по умолчанию
-    
-    # Генерируем имя запуска с timestamp
-    launch_name = f"Automated Run {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+    # Получаем настройки из файла конфигурации
+    allurectl_path = allure_upload['allurectl_path']
+    allure_endpoint = allure_upload['endpoint']
+    allure_token = allure_upload['token']
+    project_id = allure_upload['project_id']
+    launch_name = allure_upload['launch_name']
     
     # Если указаны креды, авторизуемся
     if allure_endpoint and allure_token:
