@@ -28,20 +28,26 @@ class LX:
         output = stdout.read().decode()
         return output
     
+    def run_tests_FPGA(self):
+        command = './test_fpga 1 0'
+        stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        return output
+    
     def run_hw_test_Singletone(self):
-        command = './test_fpga 1 2'
+        command = './test_fpga 0 2'
         stdin, stdout, stderr = self.ssh.exec_command(command)
     
     def run_hw_test_Loopback(self):
-        command = './test_fpga 1 1'
+        command = './test_fpga 0 1'
         stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def run_hw_test_Freqresp(self):
-        command = './test_fpga 1 3'
+        command = './test_fpga 0 3'
         stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def run_hw_test_Phaseshift(self):
-        command = './test_fpga 1 4'
+        command = './test_fpga 0 4'
         stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def close_ssh_connection(self):

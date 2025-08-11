@@ -1,9 +1,10 @@
-2025-07-29 15:49:09 INFO paramiko.transport: Connected (version 2.0, client OpenSSH_8.9p1)
-2025-07-29 15:49:09 INFO paramiko.transport: Authentication (password) successful!
-2025-07-29 15:49:09 INFO root: AUTH DONE!
-2025-07-29 15:49:10 INFO root: Результат выполнения файла по ssh: Hello, World!
+2025-08-11 10:15:08 INFO paramiko.transport: Connected (version 2.0, client OpenSSH_8.9p1)
+2025-08-11 10:15:15 INFO paramiko.transport: Authentication (password) successful!
+2025-08-11 10:15:15 INFO root: ✅ Аутентификация завершена!
+2025-08-11 10:15:15 INFO root: Тест test_authentication выполнен за 0.00 сек
+2025-08-11 10:15:16 INFO root: Результат выполнения файла по ssh: Hello, World!
 
-2025-07-29 15:49:11 INFO root: Ответ от LabVIEW: ERR_-1
-2025-07-29 15:49:11 INFO root: Результат выполнения файла по ssh: snap
+2025-08-11 10:15:18 INFO root: Тест test_AT_task1 выполнен за 2.64 сек
+2025-08-11 10:15:18 INFO root: Результат выполнения файла по ssh: snap
 
-2025-07-29 15:49:13 INFO root: Ответ от LabVIEW: ERR_-1
+2025-08-11 10:15:20 INFO root: Тест test_AT_task2 выполнен за 2.20 сек

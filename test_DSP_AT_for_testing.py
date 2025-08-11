@@ -6,6 +6,7 @@ from configs.TCP_client_LabVIEW_Python_connection_DSP_AT import data_transfer_wi
 from configs.configurations import labview_connection
 from configs.TCP_client_LabVIEW_Python_connection_DSP_AT import HF_Test
 from configs.configurations import device_info
+import os
 
 #logger = logging.getLogger(__name__)
 
@@ -14,9 +15,10 @@ from configs.configurations import device_info
 @allure.title("Аутентификация пользователя")
 def test_authentication(LX_connection):
    if LX_connection == 'FAILED':
-      pytest.exit("AUTHENTICATION_FAILED")
+      print("❌ Аутентификация провалена! Аварийный выход.")
+      os._exit(1)
    else:
-      logging.info("AUTH DONE!")
+      logging.info("✅ Аутентификация завершена!")
       assert "Auth complete!"
 
 @allure.feature("DSP_AT")

@@ -1,3 +1,4 @@
+import allure
 import pytest
 import paramiko
 import logging
@@ -6,7 +7,16 @@ from configs.connections import LX
 import os
 import shutil
 import subprocess
-from datetime import datetime
+import time
+
+
+@pytest.fixture(autouse=True)
+def log_test_duration(request):
+    start_time = time.time()
+    yield
+    duration = time.time() - start_time
+    logging.info(f"Тест {request.node.name} выполнен за {duration:.2f} сек")
+    allure.attach(f"Duration: {duration:.2f}s", name="Время выполнения", attachment_type=allure.attachment_type.TEXT)
 
 
 @pytest.fixture(scope="session")  
@@ -36,6 +46,7 @@ def LX_connection():
 # АВТОМАТИЧЕСКАЯ ЗАГРУЗКА В ALLURE по окончании всех тестов
 
 def pytest_sessionfinish(session, exitstatus):
+    print("⏩ Начинаю генерацию отчета для Allure...")
     """Вызывается после завершения всех тестов"""
     # Получаем настройки из файла конфигурации
     allurectl_path = allure_upload['allurectl_path']
@@ -79,3 +90,4 @@ def pytest_sessionfinish(session, exitstatus):
     # Очищаем результаты (опционально)
     if os.path.exists("allure-results"):
         shutil.rmtree("allure-results")
+        
