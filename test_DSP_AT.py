@@ -1,11 +1,17 @@
+import allure
 import pytest_check as check
 import pytest
 import logging
 from configs.TCP_client_LabVIEW_Python_connection_DSP_AT import data_transfer_with_VI
 from configs.configurations import labview_connection
 from configs.TCP_client_LabVIEW_Python_connection_DSP_AT import HF_Test
+from parsing_logs_from_LX import parsing_log_test_fpga
+from parsing_logs_from_LX import parsing_log_from_test_log_file
+from configs.configurations import device_info
 import os
 
+
+@allure.description("Выполнение подключения к linux-server по SSH")
 def test_authentication(LX_connection):
    if LX_connection == 'FAILED':
       print("❌ Аутентификация провалена! Аварийный выход.")
@@ -29,34 +35,82 @@ def response_processing_from_Labview(answ, testname: str):
       logging.error('Labview dont answer')
 
 
+@allure.feature("DSP_AT")
 class Tests_DSP_AT:
-      
-   def test_DSP_AT(self, LX_connection): 
+
+   @pytest.mark.only_interfaces
+   @allure.description("Проверка интерфейсов МЦОС АТ")
+   @allure.title("Проверка test-interfaces")   
+   def test_interfaces(self, LX_connection): 
       result = LX_connection.run_tests_LX()
       # Обработка ответа, парсинг лога и проверка значений с ожидаемыми результатами
-      check.equal(result, ".....", "test_DSP_AT failed")
+      test_names, test_statuses = parsing_log_from_test_log_file(result)
+      for test_name, test_status in zip(test_names, test_statuses):
+         with allure.step(f"{test_name}"):
+            logging.info(f"{test_name} result: {test_status}")
+            check.equal(test_status, 'OK', f"{test_name} failed")
 
-   def test_FPGA(self, LX_connection): 
-      result = LX_connection.run_tests_FPGA()
-      # Обработка ответа, парсинг лога и проверка значений с ожидаемыми результатами
-      check.equal(result, ".....", "test_DSP_AT failed")
 
+   # @allure.description("Проверка ПЛИС МЦОС АТ")
+   # @allure.title("Проверка test-fpga")  
+   # def test_FPGA(self, LX_connection): 
+   #    result = LX_connection.run_tests_FPGA()
+   #    logging.info(f"{result}")
+   #    logging.info("---------------ОБРАБОТКА ОТВЕТА от ПЛИС---------------")
+   #    # Обработка ответа, парсинг лога и проверка значений с ожидаемыми результатами
+   #    test_names, test_statuses, additional_infos = parsing_log_test_fpga(result)
+   #    for test_name, test_status, additional_info in zip(test_names, test_statuses, additional_infos):
+   #       with allure.step(f"{test_name}"):
+   #          logging.info(f"{test_name} result: {test_status}")
+   #          check.equal(test_status, 'OK', f"{test_name} failed")
+   #          logging.info(f"{test_name} Additional info: {additional_info}")
+
+
+   @allure.description("Проверка SINGLETONE ВЧ-теста")
+   @allure.title("Проверка test_hw_Singletone") 
    def test_hw_Singletone(self, LX_connection):
-      LX_connection.run_hw_test_Singletone()
-      answer = data_transfer_with_VI(labview_connection, "Device_name", test_name=HF_Test.Singletone)
-      response_processing_from_Labview(answer, "Singletone")
+      with allure.step("Отправка команды на включение режима проверки"):
+         result = LX_connection.run_hw_test_Singletone()
+         logging.info(f"{result}")
+         check.is_in("SINGLETONE", result, "Ответа нет, тест не включен")
+      with allure.step("Подключение к программе LabVIEW и выполнение измерений"):
+         answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Singletone)
+         response_processing_from_Labview(answer, "Singletone")
    
+
+   @allure.description("Проверка PHASESHIFT ВЧ-теста")
+   @allure.title("Проверка test_hw_Phaseshift") 
    def test_hw_Phaseshift(self, LX_connection):
-      LX_connection.run_hw_test_Phaseshift()
-      answer = data_transfer_with_VI(labview_connection, "Device_name", test_name=HF_Test.Phaseshift)
-      response_processing_from_Labview(answer, "Phaseshift")
+      with allure.step("Отправка команды на включение режима проверки"):
+         result = LX_connection.run_hw_test_Phaseshift()
+         logging.info(f"{result}")
+         check.is_in("PHASESHIFT", result, "Ответа нет, тест не включен")
+      with allure.step("Подключение к программе LabVIEW и выполнение измерений"):
+         answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Phaseshift)
+         response_processing_from_Labview(answer, "Phaseshift")
 
+
+   @allure.description("Проверка FREQRESP ВЧ-теста")
+   @allure.title("Проверка test_hw_Freqresp") 
    def test_hw_Freqresp(self, LX_connection):
-      LX_connection.run_hw_test_Freqresp()
-      answer = data_transfer_with_VI(labview_connection, "Device_name", test_name=HF_Test.Freqresp)
-      response_processing_from_Labview(answer, "Freqresp")
+      with allure.step("Отправка команды на включение режима проверки"):
+         result = LX_connection.run_hw_test_Freqresp()
+         logging.info(f"{result}")
+         check.is_in("FREQRESP", result, "Ответа нет, тест не включен")
+      with allure.step("Подключение к программе LabVIEW и выполнение измерений"):
+         answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Freqresp)
+         response_processing_from_Labview(answer, "Freqresp")
 
+
+   @allure.description("Проверка LOOPBACK ВЧ-теста")
+   @allure.title("Проверка test_hw_Loopback")
    def test_hw_Loopback(self, LX_connection):
-      LX_connection.run_hw_test_Loopback()
-      answer = data_transfer_with_VI(labview_connection, "Device_name", test_name=HF_Test.Loopback)
-      response_processing_from_Labview(answer, "Loopback")
+      with allure.step("Отправка команды на включение режима проверки"):
+         result = LX_connection.run_hw_test_Loopback()
+         logging.info(f"{result}")
+         check.is_in("LOOPBACK", result, "Ответа нет, тест не включен")
+      with allure.step("Подключение к программе LabVIEW и выполнение измерений"):   
+         answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Loopback)
+         response_processing_from_Labview(answer, "Loopback")
+
+

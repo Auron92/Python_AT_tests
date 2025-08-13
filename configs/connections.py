@@ -23,32 +23,43 @@ class LX:
         return output
     
     def run_tests_LX(self):
-        command = './run_tests'
+        command = 'cd ..; cd usr; cd bin; ./run-tests'
+        stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        command = 'cd ..; cd tmp; cat ./test.log'
         stdin, stdout, stderr = self.ssh.exec_command(command)
         output = stdout.read().decode()
         return output
     
     def run_tests_FPGA(self):
-        command = './test_fpga 1 0'
+        command = 'cd ..; cd usr; cd bin; ./test-fpga 1 0'
         stdin, stdout, stderr = self.ssh.exec_command(command)
         output = stdout.read().decode()
         return output
     
     def run_hw_test_Singletone(self):
-        command = './test_fpga 0 2'
+        command = 'cd ..; cd usr; cd bin; ./test-fpga 0 2'
         stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        return output
     
     def run_hw_test_Loopback(self):
-        command = './test_fpga 0 1'
+        command = 'cd ..; cd usr; cd bin; ./test-fpga 0 1'
         stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        return output
 
     def run_hw_test_Freqresp(self):
-        command = './test_fpga 0 3'
+        command = 'cd ..; cd usr; cd bin; ./test-fpga 0 3'
         stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        return output
 
     def run_hw_test_Phaseshift(self):
-        command = './test_fpga 0 4'
+        command = 'cd ..; cd usr; cd bin; ./test-fpga 0 4'
         stdin, stdout, stderr = self.ssh.exec_command(command)
+        output = stdout.read().decode()
+        return output
 
     def close_ssh_connection(self):
         self.ssh.close

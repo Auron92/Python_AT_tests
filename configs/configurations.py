@@ -1,6 +1,7 @@
 import yaml
 from os import path
 import configparser
+import os
 
 ini_path = path.dirname(path.abspath(__file__))
 ini_path = path.join(ini_path, 'config.ini')
@@ -25,7 +26,7 @@ server_auth = {
     'hostname': HOST,
     'username': USERNAME,
     'password': PASSWORD,
-    'port': int(PORT),
+    'port': PORT,
 }
 
 LABVIEW_HOST = config.get("Labview_client","host")
@@ -52,3 +53,5 @@ allure_upload = {
     'project_id': PROJECT_ID,
     'launch_name': LAUNCH_NAME,
 }
+
+TEST_TYPE = config.get("Test_options","test_type")

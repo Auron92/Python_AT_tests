@@ -1,10 +1,86 @@
-2025-08-11 10:15:08 INFO paramiko.transport: Connected (version 2.0, client OpenSSH_8.9p1)
-2025-08-11 10:15:15 INFO paramiko.transport: Authentication (password) successful!
-2025-08-11 10:15:15 INFO root: ✅ Аутентификация завершена!
-2025-08-11 10:15:15 INFO root: Тест test_authentication выполнен за 0.00 сек
-2025-08-11 10:15:16 INFO root: Результат выполнения файла по ssh: Hello, World!
+2025-08-13 12:58:43 INFO paramiko.transport: Connected (version 2.0, client dropbear_2024.85)
+2025-08-13 12:58:43 INFO paramiko.transport: Authentication (password) successful!
+2025-08-13 12:58:43 INFO root: ✅ Аутентификация завершена!
+2025-08-13 12:58:43 INFO root: Тест test_authentication выполнен за 0.00 сек
+2025-08-13 12:58:48 INFO root: Test cpu_pps_check result: OK
+2025-08-13 12:58:48 INFO root: Test mcu_pps_check result: FAIL
+2025-08-13 12:58:48 INFO root: Test mcu_uart_check result: OK
+2025-08-13 12:58:48 INFO root: Test mcu_usb_check result: OK
+2025-08-13 12:58:48 INFO root: Test mpos_check result: FAIL
+2025-08-13 12:58:48 INFO root: Test qspi_check result: OK
+2025-08-13 12:58:48 INFO root: Test spi_afar_rx_check result: OK
+2025-08-13 12:58:48 INFO root: Test spi_afar_tx_check result: OK
+2025-08-13 12:58:48 INFO root: Test spi_mpiu_check result: OK
+2025-08-13 12:58:48 INFO root: Тест test_interfaces выполнен за 5.14 сек
+2025-08-13 12:58:49 INFO root: BIST PCIe
+Configuration PCIe Endpoint: OK.
+Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
+Test QSPI access:            OK.
+Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3426.36 Mbit/s (102400 bytes), time 2390.88 us
+Test write PCIe:             OK.
+FPGA tests run  : 0, FPGA RF_mode # : 2
+**********************************************************************
+Setting up SINGLETONE RF test mode...
+Waiting while SINGLETONE RF test mode setup...
+FPGA tests STATE_REG  : value: 0x002000FF
+FPGA current RF test mode is : SINGLETONE
 
-2025-08-11 10:15:18 INFO root: Тест test_AT_task1 выполнен за 2.64 сек
-2025-08-11 10:15:18 INFO root: Результат выполнения файла по ssh: snap
+2025-08-13 12:58:53 INFO root: Singletone:ok;-9,108124E-1
+2025-08-13 12:58:53 INFO root: Test Singletone success
+2025-08-13 12:58:53 INFO root: Тест test_hw_Singletone выполнен за 4.61 сек
+2025-08-13 12:58:54 INFO root: BIST PCIe
+Configuration PCIe Endpoint: OK.
+Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
+Test QSPI access:            OK.
+Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5123.71 Mbit/s (640464 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3345.81 Mbit/s (102400 bytes), time 2448.43 us
+Test write PCIe:             OK.
+FPGA tests run  : 0, FPGA RF_mode # : 4
+**********************************************************************
+Setting up PHASESHIFT RF test mode...
+Waiting while PHASESHIFT RF test mode setup...
+FPGA tests STATE_REG  : value: 0x008000FF
+FPGA Current RF test mode is : PHASESHIFT
 
-2025-08-11 10:15:20 INFO root: Тест test_AT_task2 выполнен за 2.20 сек
+2025-08-13 12:59:11 INFO root: Phaseshift:ok;2,176880E+0
+2025-08-13 12:59:11 INFO root: Test Phaseshift success
+2025-08-13 12:59:11 INFO root: Тест test_hw_Phaseshift выполнен за 18.42 сек
+2025-08-13 12:59:14 INFO root: BIST PCIe
+Configuration PCIe Endpoint: OK.
+Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
+Test QSPI access:            OK.
+Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3388.16 Mbit/s (102400 bytes), time 2417.84 us
+Test write PCIe:             OK.
+FPGA tests run  : 0, FPGA RF_mode # : 3
+**********************************************************************
+Setting up FREQRESP RF test mode...
+Waiting while FREQRESP RF test mode setup...
+FPGA tests STATE_REG  : value: 0x004000FF
+FPGA current RF test mode is : FREQRESP
+
+2025-08-13 12:59:41 INFO root: Freqresp:ok;1,148911E+1
+2025-08-13 12:59:41 INFO root: Test Freqresp success
+2025-08-13 12:59:41 INFO root: Тест test_hw_Freqresp выполнен за 29.09 сек
+2025-08-13 12:59:41 INFO root: BIST PCIe
+Configuration PCIe Endpoint: OK.
+Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
+Test QSPI access:            OK.
+Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3357.77 Mbit/s (102400 bytes), time 2439.72 us
+Test write PCIe:             OK.
+FPGA tests run  : 0, FPGA RF_mode # : 1
+**********************************************************************
+Setting up LOOPBACK RF test mode...
+Waiting while LOOPBACK RF test mode setup...
+FPGA tests STATE_REG  : value: 0x001000FF
+FPGA current RF test mode is : LOOPBACK
+
+2025-08-13 12:59:45 INFO root: Loopback:ok;-9,969360E+0
+2025-08-13 12:59:45 INFO root: Test Loopback success
+2025-08-13 12:59:45 INFO root: Тест test_hw_Loopback выполнен за 4.47 сек
