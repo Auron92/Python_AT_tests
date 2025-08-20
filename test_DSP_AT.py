@@ -11,6 +11,10 @@ from configs.configurations import device_info
 import os
 
 
+@allure.id('62327')
+@allure.label("owner", "m.maltsev")
+@pytest.mark.only_interfaces
+@pytest.mark.hf
 @allure.description("Выполнение подключения к linux-server по SSH")
 def test_authentication(LX_connection):
    if LX_connection == 'FAILED':
@@ -38,6 +42,9 @@ def response_processing_from_Labview(answ, testname: str):
 @allure.feature("DSP_AT")
 class Tests_DSP_AT:
 
+   
+   @allure.id('63666')
+   @allure.label("owner", "m.maltsev")
    @pytest.mark.only_interfaces
    @allure.description("Проверка интерфейсов МЦОС АТ")
    @allure.title("Проверка test-interfaces")   
@@ -50,24 +57,27 @@ class Tests_DSP_AT:
             logging.info(f"{test_name} result: {test_status}")
             check.equal(test_status, 'OK', f"{test_name} failed")
 
+   @allure.id('63622')
+   @allure.label("owner", "m.maltsev")
+   @allure.description("Проверка ПЛИС МЦОС АТ")
+   @allure.title("Проверка test-fpga")  
+   def test_FPGA(self, LX_connection): 
+      result = LX_connection.run_tests_FPGA()
+      logging.info(f"{result}")
+      logging.info("---------------ОБРАБОТКА ОТВЕТА от ПЛИС---------------")
+      # Обработка ответа, парсинг лога и проверка значений с ожидаемыми результатами
+      test_names, test_statuses, additional_infos = parsing_log_test_fpga(result)
+      for test_name, test_status, additional_info in zip(test_names, test_statuses, additional_infos):
+         with allure.step(f"{test_name}"):
+            logging.info(f"{test_name} result: {test_status}")
+            check.equal(test_status, 'OK', f"{test_name} failed")
+            logging.info(f"{test_name} Additional info: {additional_info}")
 
-   # @allure.description("Проверка ПЛИС МЦОС АТ")
-   # @allure.title("Проверка test-fpga")  
-   # def test_FPGA(self, LX_connection): 
-   #    result = LX_connection.run_tests_FPGA()
-   #    logging.info(f"{result}")
-   #    logging.info("---------------ОБРАБОТКА ОТВЕТА от ПЛИС---------------")
-   #    # Обработка ответа, парсинг лога и проверка значений с ожидаемыми результатами
-   #    test_names, test_statuses, additional_infos = parsing_log_test_fpga(result)
-   #    for test_name, test_status, additional_info in zip(test_names, test_statuses, additional_infos):
-   #       with allure.step(f"{test_name}"):
-   #          logging.info(f"{test_name} result: {test_status}")
-   #          check.equal(test_status, 'OK', f"{test_name} failed")
-   #          logging.info(f"{test_name} Additional info: {additional_info}")
-
-
+   @allure.id('62331')
+   @allure.label("owner", "m.maltsev")
+   @pytest.mark.hf
    @allure.description("Проверка SINGLETONE ВЧ-теста")
-   @allure.title("Проверка test_hw_Singletone") 
+   @allure.title("Проверка test_hf_Singletone") 
    def test_hw_Singletone(self, LX_connection):
       with allure.step("Отправка команды на включение режима проверки"):
          result = LX_connection.run_hw_test_Singletone()
@@ -77,9 +87,11 @@ class Tests_DSP_AT:
          answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Singletone)
          response_processing_from_Labview(answer, "Singletone")
    
-
+   @allure.id('62333')
+   @allure.label("owner", "m.maltsev")
+   @pytest.mark.hf
    @allure.description("Проверка PHASESHIFT ВЧ-теста")
-   @allure.title("Проверка test_hw_Phaseshift") 
+   @allure.title("Проверка test_hf_Phaseshift") 
    def test_hw_Phaseshift(self, LX_connection):
       with allure.step("Отправка команды на включение режима проверки"):
          result = LX_connection.run_hw_test_Phaseshift()
@@ -89,9 +101,11 @@ class Tests_DSP_AT:
          answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Phaseshift)
          response_processing_from_Labview(answer, "Phaseshift")
 
-
+   @allure.id('62329')
+   @allure.label("owner", "m.maltsev")
+   @pytest.mark.hf
    @allure.description("Проверка FREQRESP ВЧ-теста")
-   @allure.title("Проверка test_hw_Freqresp") 
+   @allure.title("Проверка test_hf_Freqresp") 
    def test_hw_Freqresp(self, LX_connection):
       with allure.step("Отправка команды на включение режима проверки"):
          result = LX_connection.run_hw_test_Freqresp()
@@ -101,9 +115,11 @@ class Tests_DSP_AT:
          answer = data_transfer_with_VI(labview_connection, device_info, test_name=HF_Test.Freqresp)
          response_processing_from_Labview(answer, "Freqresp")
 
-
+   @allure.id('62330')
+   @allure.label("owner", "m.maltsev")
+   @pytest.mark.hf
    @allure.description("Проверка LOOPBACK ВЧ-теста")
-   @allure.title("Проверка test_hw_Loopback")
+   @allure.title("Проверка test_hf_Loopback")
    def test_hw_Loopback(self, LX_connection):
       with allure.step("Отправка команды на включение режима проверки"):
          result = LX_connection.run_hw_test_Loopback()

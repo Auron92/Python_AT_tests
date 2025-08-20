@@ -14,6 +14,12 @@ if __name__ == "__main__":
             print("✅ Все тесты выполнены успешно")
         else:
             print("❌ Есть ошибки в тестах")
+    
+    elif TEST_TYPE == 'hf':
+        if not(pytest.main(["test_DSP_AT.py", "-v", "-s", "-m hf"])):
+            print("✅ Все тесты выполнены успешно")
+        else:
+            print("❌ Есть ошибки в тестах")
 
     else:
         print("В файле config.ini введите корректно test_type")
