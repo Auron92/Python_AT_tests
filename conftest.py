@@ -4,6 +4,7 @@ import paramiko
 import logging
 from configs.configurations import allure_upload
 from configs.connections import LX
+from configs.configurations import device_info
 import os
 import shutil
 import subprocess
@@ -75,7 +76,8 @@ def pytest_sessionfinish(session, exitstatus):
         "upload",
         "allure-results",
         f"--project-id={project_id}",
-        f"--launch-name={launch_name}"
+        f"--launch-name={launch_name}",
+        f"--launch-tags={device_info}"
     ]
 
     try:

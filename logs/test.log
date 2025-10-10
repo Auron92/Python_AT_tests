@@ -1,14 +1,15 @@
-2025-08-20 10:43:36 INFO paramiko.transport: Connected (version 2.0, client dropbear_2024.85)
-2025-08-20 10:43:37 INFO paramiko.transport: Authentication (password) successful!
-2025-08-20 10:43:37 INFO root: ✅ Аутентификация завершена!
-2025-08-20 10:43:37 INFO root: Тест test_authentication выполнен за 0.00 сек
-2025-08-20 10:43:37 INFO root: BIST PCIe
+2025-10-10 16:41:48 INFO paramiko.transport: Connected (version 2.0, client dropbear_2024.85)
+2025-10-10 16:41:48 INFO paramiko.transport: Authentication (publickey) failed.
+2025-10-10 16:41:48 INFO paramiko.transport: Authentication (password) successful!
+2025-10-10 16:41:48 INFO root: ✅ Аутентификация завершена!
+2025-10-10 16:41:48 INFO root: Тест test_authentication выполнен за 0.00 сек
+2025-10-10 16:41:48 INFO root: BIST PCIe
 Configuration PCIe Endpoint: OK.
 Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
 Test QSPI access:            OK.
 Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3429.06 Mbit/s (102400 bytes), time 2388.99 us
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3421.67 Mbit/s (102400 bytes), time 2394.16 us
 Test write PCIe:             OK.
 FPGA tests run  : 0, FPGA RF_mode # : 2
 **********************************************************************
@@ -17,16 +18,16 @@ Waiting while SINGLETONE RF test mode setup...
 FPGA tests STATE_REG  : value: 0x002000FF
 FPGA current RF test mode is : SINGLETONE
 
-2025-08-20 10:43:41 INFO root: Singletone:ok;-8,488922E-1
-2025-08-20 10:43:41 INFO root: Test Singletone success
-2025-08-20 10:43:41 INFO root: Тест test_hw_Singletone выполнен за 4.36 сек
-2025-08-20 10:43:42 INFO root: BIST PCIe
+2025-10-10 16:41:53 INFO root: Singletone:ok;-9,095764E-1
+2025-10-10 16:41:53 INFO root: Test Singletone success
+2025-10-10 16:41:53 INFO root: Тест test_hw_Singletone выполнен за 5.47 сек
+2025-10-10 16:41:54 INFO root: BIST PCIe
 Configuration PCIe Endpoint: OK.
 Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
 Test QSPI access:            OK.
 Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
 Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3355.84 Mbit/s (102400 bytes), time 2441.11 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3419.78 Mbit/s (102400 bytes), time 2395.48 us
 Test write PCIe:             OK.
 FPGA tests run  : 0, FPGA RF_mode # : 4
 **********************************************************************
@@ -35,16 +36,16 @@ Waiting while PHASESHIFT RF test mode setup...
 FPGA tests STATE_REG  : value: 0x008000FF
 FPGA Current RF test mode is : PHASESHIFT
 
-2025-08-20 10:44:00 INFO root: Phaseshift:ok;2,160919E+0
-2025-08-20 10:44:00 INFO root: Test Phaseshift success
-2025-08-20 10:44:00 INFO root: Тест test_hw_Phaseshift выполнен за 18.46 сек
-2025-08-20 10:44:02 INFO root: BIST PCIe
+2025-10-10 16:42:13 INFO root: Phaseshift:ok;3,700821E+0
+2025-10-10 16:42:13 INFO root: Test Phaseshift success
+2025-10-10 16:42:13 INFO root: Тест test_hw_Phaseshift выполнен за 19.87 сек
+2025-10-10 16:42:20 INFO root: BIST PCIe
 Configuration PCIe Endpoint: OK.
 Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
 Test QSPI access:            OK.
 Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3409.42 Mbit/s (102400 bytes), time 2402.76 us
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3353.04 Mbit/s (102400 bytes), time 2443.16 us
 Test write PCIe:             OK.
 FPGA tests run  : 0, FPGA RF_mode # : 3
 **********************************************************************
@@ -53,16 +54,16 @@ Waiting while FREQRESP RF test mode setup...
 FPGA tests STATE_REG  : value: 0x004000FF
 FPGA current RF test mode is : FREQRESP
 
-2025-08-20 10:44:29 INFO root: Freqresp:ok;1,171170E+1
-2025-08-20 10:44:29 INFO root: Test Freqresp success
-2025-08-20 10:44:29 INFO root: Тест test_hw_Freqresp выполнен за 29.10 сек
-2025-08-20 10:44:29 INFO root: BIST PCIe
+2025-10-10 16:42:48 INFO root: Freqresp:ok;1,180397E+1
+2025-10-10 16:42:48 INFO root: Test Freqresp success
+2025-10-10 16:42:48 INFO root: Тест test_hw_Freqresp выполнен за 35.30 сек
+2025-10-10 16:42:49 INFO root: BIST PCIe
 Configuration PCIe Endpoint: OK.
 Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
 Test QSPI access:            OK.
 Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3440.75 Mbit/s (102400 bytes), time 2380.88 us
+Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
+Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3429.46 Mbit/s (102400 bytes), time 2388.72 us
 Test write PCIe:             OK.
 FPGA tests run  : 0, FPGA RF_mode # : 1
 **********************************************************************
@@ -71,6 +72,6 @@ Waiting while LOOPBACK RF test mode setup...
 FPGA tests STATE_REG  : value: 0x001000FF
 FPGA current RF test mode is : LOOPBACK
 
-2025-08-20 10:44:33 INFO root: Loopback:ok;-9,898514E+0
-2025-08-20 10:44:33 INFO root: Test Loopback success
-2025-08-20 10:44:33 INFO root: Тест test_hw_Loopback выполнен за 4.56 сек
+2025-10-10 16:42:54 INFO root: Loopback:ok;-9,950516E+0
+2025-10-10 16:42:54 INFO root: Test Loopback success
+2025-10-10 16:42:54 INFO root: Тест test_hw_Loopback выполнен за 5.65 сек

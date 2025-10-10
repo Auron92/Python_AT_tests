@@ -10,17 +10,17 @@ class LX:
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         self.ssh.connect(**server_auth)
    
-    def run_test_ssh_1(self):
-        command = 'cd snap; ./2.sh'
-        stdin, stdout, stderr = self.ssh.exec_command(command)
-        output = stdout.read().decode()
-        return output
+    # def run_test_ssh_1(self):
+    #     command = 'cd snap; ./2.sh'
+    #     stdin, stdout, stderr = self.ssh.exec_command(command)
+    #     output = stdout.read().decode()
+    #     return output
     
-    def run_test_ssh_2(self):
-        command = 'ls'
-        stdin, stdout, stderr = self.ssh.exec_command(command)
-        output = stdout.read().decode()
-        return output
+    # def run_test_ssh_2(self):
+    #     command = 'ls'
+    #     stdin, stdout, stderr = self.ssh.exec_command(command)
+    #     output = stdout.read().decode()
+    #     return output
     
     def run_tests_LX(self):
         command = 'cd ..; cd usr; cd bin; ./run-tests'
