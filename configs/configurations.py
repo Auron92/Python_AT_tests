@@ -53,5 +53,3 @@ allure_upload = {
     'project_id': PROJECT_ID,
     'launch_name': LAUNCH_NAME,
 }
-
-TEST_TYPE = config.get("Test_options","test_type")
