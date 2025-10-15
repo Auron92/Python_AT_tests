@@ -1,6 +1,6 @@
 #Files
 config.yaml
 config.ini
-.venv
-__pycache__
-.pytest_cache
+.venv/
+__pycache__/
+.pytest_cache/
