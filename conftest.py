@@ -47,7 +47,7 @@ def LX_connection():
 # АВТОМАТИЧЕСКАЯ ЗАГРУЗКА В ALLURE по окончании всех тестов
 
 def pytest_sessionfinish(session, exitstatus):
-    print("⏩ Начинаю генерацию отчета для Allure...")
+    print("\n⏩ Начинаю генерацию отчета для Allure...")
     """Вызывается после завершения всех тестов"""
     # Получаем настройки из файла конфигурации
     allurectl_path = allure_upload['allurectl_path']
