@@ -1,77 +1,15 @@
-2025-10-15 10:08:32 INFO paramiko.transport: Connected (version 2.0, client dropbear_2024.85)
-2025-10-15 10:08:32 INFO paramiko.transport: Authentication (publickey) failed.
-2025-10-15 10:08:33 INFO paramiko.transport: Authentication (password) successful!
-2025-10-15 10:08:33 INFO root: ✅ Аутентификация завершена!
-2025-10-15 10:08:33 INFO root: Тест test_authentication выполнен за 0.00 сек
-2025-10-15 10:08:33 INFO root: BIST PCIe
-Configuration PCIe Endpoint: OK.
-Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
-Test QSPI access:            OK.
-Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3332.85 Mbit/s (102400 bytes), time 2457.95 us
-Test write PCIe:             OK.
-FPGA tests run  : 0, FPGA RF_mode # : 2
-**********************************************************************
-Setting up SINGLETONE RF test mode...
-Waiting while SINGLETONE RF test mode setup...
-FPGA tests STATE_REG  : value: 0x002000FF
-FPGA current RF test mode is : SINGLETONE
-
-2025-10-15 10:08:38 INFO root: Singletone:ok;-8,591003E-1
-2025-10-15 10:08:38 INFO root: Test Singletone success
-2025-10-15 10:08:38 INFO root: Тест test_hw_Singletone выполнен за 5.74 сек
-2025-10-15 10:08:39 INFO root: BIST PCIe
-Configuration PCIe Endpoint: OK.
-Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
-Test QSPI access:            OK.
-Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3373.70 Mbit/s (102400 bytes), time 2428.20 us
-Test write PCIe:             OK.
-FPGA tests run  : 0, FPGA RF_mode # : 4
-**********************************************************************
-Setting up PHASESHIFT RF test mode...
-Waiting while PHASESHIFT RF test mode setup...
-FPGA tests STATE_REG  : value: 0x008000FF
-FPGA Current RF test mode is : PHASESHIFT
-
-2025-10-15 10:08:59 INFO root: Phaseshift:ok;4,073730E+0
-2025-10-15 10:08:59 INFO root: Test Phaseshift success
-2025-10-15 10:08:59 INFO root: Тест test_hw_Phaseshift выполнен за 20.26 сек
-2025-10-15 10:09:06 INFO root: BIST PCIe
-Configuration PCIe Endpoint: OK.
-Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
-Test QSPI access:            OK.
-Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5127.94 Mbit/s (640992 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3363.50 Mbit/s (102400 bytes), time 2435.55 us
-Test write PCIe:             OK.
-FPGA tests run  : 0, FPGA RF_mode # : 3
-**********************************************************************
-Setting up FREQRESP RF test mode...
-Waiting while FREQRESP RF test mode setup...
-FPGA tests STATE_REG  : value: 0x004000FF
-FPGA current RF test mode is : FREQRESP
-
-2025-10-15 10:09:34 INFO root: Freqresp:ok;1,158130E+1
-2025-10-15 10:09:34 INFO root: Test Freqresp success
-2025-10-15 10:09:34 INFO root: Тест test_hw_Freqresp выполнен за 35.29 сек
-2025-10-15 10:09:35 INFO root: BIST PCIe
-Configuration PCIe Endpoint: OK.
-Access to L1 Register Space: OK. PL git hash: 01915F80EDD8C6F9B465A1FB6A626888F6B9F93D
-Test QSPI access:            OK.
-Test DDR R/W operations:     OK. DDR value: 0xDEADBABE
-Test Egress R/W operations:  OK. FPGA write throughput for pack 32 burst 1: 5111.04 Mbit/s (638880 bytes), time 1000 us
-Test read PCIe:              OK. LX read throughput for pack 32 burst 1 amount 200: 3414.65 Mbit/s (102400 bytes), time 2399.08 us
-Test write PCIe:             OK.
-FPGA tests run  : 0, FPGA RF_mode # : 1
-**********************************************************************
-Setting up LOOPBACK RF test mode...
-Waiting while LOOPBACK RF test mode setup...
-FPGA tests STATE_REG  : value: 0x001000FF
-FPGA current RF test mode is : LOOPBACK
-
-2025-10-15 10:09:40 INFO root: Loopback:ok;-9,780960E+0
-2025-10-15 10:09:40 INFO root: Test Loopback success
-2025-10-15 10:09:40 INFO root: Тест test_hw_Loopback выполнен за 5.89 сек
+2025-10-15 11:38:01 INFO paramiko.transport: Connected (version 2.0, client dropbear_2024.85)
+2025-10-15 11:38:01 INFO paramiko.transport: Authentication (publickey) failed.
+2025-10-15 11:38:02 INFO paramiko.transport: Authentication (password) successful!
+2025-10-15 11:38:02 INFO root: ✅ Аутентификация завершена!
+2025-10-15 11:38:02 INFO root: Тест test_authentication выполнен за 0.00 сек
+2025-10-15 11:38:07 INFO root: Test cpu_pps_check result: OK
+2025-10-15 11:38:07 INFO root: Test mcu_pps_check result: FAIL
+2025-10-15 11:38:07 INFO root: Test mcu_uart_check result: OK
+2025-10-15 11:38:07 INFO root: Test mcu_usb_check result: OK
+2025-10-15 11:38:07 INFO root: Test mpos_check result: FAIL
+2025-10-15 11:38:07 INFO root: Test qspi_check result: OK
+2025-10-15 11:38:07 INFO root: Test spi_afar_rx_check result: OK
+2025-10-15 11:38:07 INFO root: Test spi_afar_tx_check result: OK
+2025-10-15 11:38:07 INFO root: Test spi_mpiu_check result: OK
+2025-10-15 11:38:07 INFO root: Тест test_interfaces выполнен за 5.09 сек
